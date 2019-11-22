@@ -26,3 +26,21 @@
   }
   console.log(`r: ${r.hello}`); // world
 }
+
+interface Hello {
+  hello: string;
+}
+
+const longest = (x: Hello, y: Hello): Hello => {
+  return x.hello.length > y.hello.length ? x : y;
+};
+
+{
+  const hello1 = { hello: 'world' };
+  let result: Hello;
+  {
+    let hello2 = { hello: 'wow'};
+    result = longest(hello1, hello2);
+  }
+  console.log(`result.hello: ${result.hello}`); // world
+}
